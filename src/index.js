@@ -61,10 +61,22 @@ export const deepExtend = (target, source) => {
 export const diffObject = (object1, object2) => (
   Object.keys(object1).concat(Object.keys(object2)).reduce((map, key) => {
     if (object1[key] !== object2[key]) {
-      map[key] = object2[key]; // eslint-disable-line no-param-reassign
+      map[key] = object2[key];
     }
     return map;
   }, {})
+);
+
+const _capitalize = (s) => (
+    s[0].toUpperCase() + s.slice(1)
+);
+
+const _replacer1 = (match, p1, p2, p3) => (
+    `${p1}${_capitalize(p2)} ${p3}`
+);
+
+export const convertCamelCaseToReadable = (s1) => (
+  s1.replace(/(^|[^a-z])([a-z]+)([A-Z])/, _replacer1)
 );
 
 
@@ -73,6 +85,7 @@ const utils = {
   recursiveOmit,
   deepExtend,
   diffObject,
+  convertCamelCaseToReadable,
 };
 
 export default utils;
