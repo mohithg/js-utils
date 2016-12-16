@@ -1,6 +1,6 @@
 {
   "name": "js-utils-deep",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Javascript Deep Utility functions",
   "main": "build/index.js",
   "keywords": [
@@ -12,13 +12,15 @@
     "recursive"
   ],
   "scripts": {
-   "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --recursive",
-   "test-cov": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --report html --report text node_modules/.bin/_mocha",
-   "build": "rm -rf build && ./node_modules/.bin/babel src --out-dir build",
-   "clean": "rm -rf build",
-   "lint": "eslint src test"
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --recursive",
+    "test-cov": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --report html --report text node_modules/.bin/_mocha",
+    "build": "rm -rf build && ./node_modules/.bin/babel src --out-dir build",
+    "clean": "rm -rf build",
+    "lint": "eslint src test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.9.1",
@@ -37,13 +39,13 @@
     "mocha": "^2.5.3"
   },
   "repository": {
-     "type": "git",
-     "url": "git+https://github.com/mohithg/js-utils"
-   },
-   "bugs": {
-     "url": "https://github.com/mohithg/js-utils/issues"
-   },
-   "homepage": "https://github.com/mohithg/js-utils#readme",
+    "type": "git",
+    "url": "git+https://github.com/mohithg/js-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/mohithg/js-utils/issues"
+  },
+  "homepage": "https://github.com/mohithg/js-utils#readme",
   "author": "Mohith G",
   "license": "MIT"
 }
