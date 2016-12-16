@@ -68,7 +68,7 @@ export const diffObject = (object1, object2) => (
 );
 
 const _capitalize = (s) => (
-    s[0].toUpperCase() + s.slice(1)
+    s[0] && s[0].toUpperCase() + s.slice(1)
 );
 
 const _replacer1 = (match, p1, p2, p3) => (

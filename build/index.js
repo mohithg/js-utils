@@ -81,7 +81,7 @@ var diffObject = exports.diffObject = function diffObject(object1, object2) {
 };
 
 var _capitalize = function _capitalize(s) {
-  return s[0].toUpperCase() + s.slice(1);
+  return s[0] && s[0].toUpperCase() + s.slice(1);
 };
 
 var _replacer1 = function _replacer1(match, p1, p2, p3) {
