@@ -1,8 +1,10 @@
 import _ from 'underscore';
 
 /**
- * compactObject - deletes the empty valued properties from the object
- * @params {Object} - The object
+ * @function compactObject
+ * @desc compactObject         - deletes the empty valued properties from the object
+ * @param {Object}             - The object
+ * @return {object} compactobj - object free from empty valued properties.
  */
 export const compactObject = (object) => {
   const clone = _.clone(object);
@@ -16,8 +18,10 @@ export const compactObject = (object) => {
 };
 
 /**
- * recursiveOmit - Removes the empty valued properties from the object recursively
- * @params {Object} - The object
+ * @function recursiveOmit
+ * @desc Removes the empty valued properties from the object recursively
+ * @param {Object}             - The object.
+ * @return {object} compactobj - object free from empty valued properties deep.
  */
 export const recursiveOmit = (object) => {
   const compactObj = compactObject(object);
@@ -33,8 +37,11 @@ export const recursiveOmit = (object) => {
 };
 
 /**
- * deepExtend - Similar to _.extend but does a deep extend
- * @params {Object} - The object
+ * @function deepExtend
+ * @desc Similar to _.extend but does a deep extend
+ * @param {object} target    - The target object to which source object properties to be merged.
+ * @param {object} source    - The source object properties which need's to be merged to target.
+ * @return {object} target   - Returns the target object which has the source object properties after merging it.
  */
 export const deepExtend = (target, source) => {
   if (_.isObject(target) && _.isObject(source)) {
@@ -53,10 +60,11 @@ export const deepExtend = (target, source) => {
 };
 
 /**
- * diffObject - Compares Object1 with Object2 and returns the different key-value pairs
- * @params {Object} - The object1
- * @params {Object} - The object2
- * @return {Object} - The diff of object1 and object2
+ * @function diffobject
+ * @desc Compares Object1 with Object2 and returns the different key-value pairs
+ * @param {string} object1     - Enter object1 to compare with object2
+ * @param {string} object2     - Enter object2 to compare with object1
+ * @return {object} diffobject - Returns the different key-value pairs in object1 and object2.
  */
 export const diffObject = (object1, object2) => (
   Object.keys(object1).concat(Object.keys(object2)).reduce((map, key) => {
@@ -67,18 +75,38 @@ export const diffObject = (object1, object2) => (
   }, {})
 );
 
+
+/**
+ * @function _capitalize
+ * @ignore
+ * @desc - It will convert the first letter in a given string to uppercase.
+ */
 const _capitalize = (s) => (
     s[0] && s[0].toUpperCase() + s.slice(1)
 );
 
+
+/**
+ * @function _replacer1
+ * @ignore
+ * @desc - We will pass three strings to this function and it will returns the first string as it is
+ * and converts the first letter in second string to uppercase.
+ * and returns the third string with an additional space.
+ */
 const _replacer1 = (match, p1, p2, p3) => (
     `${p1}${_capitalize(p2)} ${p3}`
 );
 
+
+/**
+ * @function convertCamelCaseToReadable
+ * @param {string} s1 - Enter camel case string to convert to readable.  
+ * @return s1         - Returns the each and every string by separating with spaces in between it.
+ * @desc              - If you combine more than two strings without any spaces between in it. It will make it readable by providing space between each and every string.
+ */
 export const convertCamelCaseToReadable = (s1) => (
   s1.replace(/(^|[^a-z])([a-z]+)([A-Z])/, _replacer1)
 );
-
 
 const utils = {
   compactObject,
