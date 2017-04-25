@@ -81,3 +81,8 @@ diffObject(object1, object2)
   z: 'c'
 }; */
 ```
+
+
+## Resources
+- [API Reference](http://mohithg.com/js-utils/)
+- [Wiki](https://github.com/mohithg/js-utils/wiki/API-Reference)

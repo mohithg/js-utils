@@ -14,8 +14,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
- * compactObject - deletes the empty valued properties from the object
- * @params {Object} - The object
+ * @function compactObject
+ * @desc compactObject         - deletes the empty valued properties from the object
+ * @param {Object}             - The object
+ * @return {object} compactobj - object free from empty valued properties.
  */
 var compactObject = exports.compactObject = function compactObject(object) {
   var clone = _underscore2.default.clone(object);
@@ -29,8 +31,10 @@ var compactObject = exports.compactObject = function compactObject(object) {
 };
 
 /**
- * recursiveOmit - Removes the empty valued properties from the object recursively
- * @params {Object} - The object
+ * @function recursiveOmit
+ * @desc Removes the empty valued properties from the object recursively
+ * @param {Object}             - The object.
+ * @return {object} compactobj - object free from empty valued properties deep.
  */
 var recursiveOmit = exports.recursiveOmit = function recursiveOmit(object) {
   var compactObj = compactObject(object);
@@ -46,8 +50,11 @@ var recursiveOmit = exports.recursiveOmit = function recursiveOmit(object) {
 };
 
 /**
- * deepExtend - Similar to _.extend but does a deep extend
- * @params {Object} - The object
+ * @function deepExtend
+ * @desc Similar to _.extend but does a deep extend
+ * @param {object} target    - The target object to which source object properties to be merged.
+ * @param {object} source    - The source object properties which need's to be merged to target.
+ * @return {object} target   - Returns the target object which has the source object properties after merging it.
  */
 var deepExtend = exports.deepExtend = function deepExtend(target, source) {
   if (_underscore2.default.isObject(target) && _underscore2.default.isObject(source)) {
@@ -66,10 +73,11 @@ var deepExtend = exports.deepExtend = function deepExtend(target, source) {
 };
 
 /**
- * diffObject - Compares Object1 with Object2 and returns the different key-value pairs
- * @params {Object} - The object1
- * @params {Object} - The object2
- * @return {Object} - The diff of object1 and object2
+ * @function diffobject
+ * @desc Compares Object1 with Object2 and returns the different key-value pairs
+ * @param {string} object1     - Enter object1 to compare with object2
+ * @param {string} object2     - Enter object2 to compare with object1
+ * @return {object} diffobject - Returns the different key-value pairs in object1 and object2.
  */
 var diffObject = exports.diffObject = function diffObject(object1, object2) {
   return Object.keys(object1).concat(Object.keys(object2)).reduce(function (map, key) {
@@ -80,14 +88,32 @@ var diffObject = exports.diffObject = function diffObject(object1, object2) {
   }, {});
 };
 
+/**
+ * @function _capitalize
+ * @ignore
+ * @desc - It will convert the first letter in a given string to uppercase.
+ */
 var _capitalize = function _capitalize(s) {
   return s[0] && s[0].toUpperCase() + s.slice(1);
 };
 
+/**
+ * @function _replacer1
+ * @ignore
+ * @desc - We will pass three strings to this function and it will returns the first string as it is
+ * and converts the first letter in second string to uppercase.
+ * and returns the third string with an additional space.
+ */
 var _replacer1 = function _replacer1(match, p1, p2, p3) {
   return '' + p1 + _capitalize(p2) + ' ' + p3;
 };
 
+/**
+ * @function convertCamelCaseToReadable
+ * @param {string} s1 - Enter camel case string to convert to readable.  
+ * @return s1         - Returns the each and every string by separating with spaces in between it.
+ * @desc              - If you combine more than two strings without any spaces between in it. It will make it readable by providing space between each and every string.
+ */
 var convertCamelCaseToReadable = exports.convertCamelCaseToReadable = function convertCamelCaseToReadable(s1) {
   return s1.replace(/(^|[^a-z])([a-z]+)([A-Z])/, _replacer1);
 };

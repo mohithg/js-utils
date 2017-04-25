@@ -16,7 +16,9 @@
     "test-cov": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover --report html --report text node_modules/.bin/_mocha",
     "build": "rm -rf build && ./node_modules/.bin/babel src --out-dir build",
     "clean": "rm -rf build",
-    "lint": "eslint src test"
+    "lint": "eslint src test",
+    "generate_doc": "node_modules/.bin/jsdoc -c jsdoc.conf.json * -t node_modules/docdash",
+    "generate_api_doc": "jsdoc2md src/index.js"
   },
   "dependencies": {
     "underscore": "^1.8.3"
@@ -36,7 +38,9 @@
     "eslint-plugin-jsx-a11y": "^1.4.2",
     "eslint-plugin-react": "^5.1.1",
     "isparta": "^4.0.0",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "docdash": "^0.4.0",
+    "jsdoc": "^3.4.3"
   },
   "repository": {
     "type": "git",
