@@ -1,9 +1,9 @@
-#JavaScript Deep Utility Functions
+# JavaScript Deep Utility Functions
 
-##recursiveOmit (deepObject)
+## recursiveOmit (deepObject)
 Recursively omits the null, '', undefined values from the object. Checks all levels deep to remove the keys associated.
-```
-eg: let deepObject = {
+```javascript
+let deepObject = {
   x: {
     y: {
       z: ''  
@@ -17,11 +17,11 @@ eg: let deepObject = {
 };
 recursiveOmit(deepObject) // returns {}
 ```
-
-##deepExtend (object1, object2)
+## deepExtend (object1, object2)
 Deeply extend object1 with object2 where object1 will be target and object2 will be source.
-```
-eg: let object1 = {
+
+```javascript
+let object1 = {
   x: {
     y: {
       z: ''  
@@ -46,7 +46,8 @@ let object 2 = {
   }
 };
 
-deepExtend(object1, object2) // returns {
+deepExtend(object1, object2)
+/* returns {
   x: {
     y: {
       z: 'z',
@@ -57,12 +58,13 @@ deepExtend(object1, object2) // returns {
     }
     d: 'd'
   }
-};
+}; */
 ```
 
-##diffObject(object1, object2)
+## diffObject(object1, object2)
 Compares object1 with object2 and returns the different key value pairs.
-```
+
+```javascript
 eg: let object1 = {
   x: 'a',
   y: 'b'
@@ -73,8 +75,9 @@ let object 2 = {
   z: 'c',
 };
 
-diffObject(object1, object2) // returns {
+diffObject(object1, object2) 
+/* returns {
   y: 'b',
   z: 'c'
-};
+}; */
 ```
