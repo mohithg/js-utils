@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.convertCamelCaseToReadable = exports.diffObject = exports.deepExtend = exports.recursiveOmit = exports.compactObject = undefined;
+exports.move = exports.convertCamelCaseToReadable = exports.diffObject = exports.deepExtend = exports.recursiveOmit = exports.compactObject = undefined;
 
 var _underscore = require('underscore');
 
@@ -118,12 +118,25 @@ var convertCamelCaseToReadable = exports.convertCamelCaseToReadable = function c
   return s1.replace(/(^|[^a-z])([a-z]+)([A-Z])/, _replacer1);
 };
 
+/**
+ * @function move
+ * @desc Moves the element from fromIndex to toIndex in the array
+ * @param {array} array - The array in which element is to be moved
+ * @param {number} fromIndex - The element index which it has to be moved
+ * @param {number} toIndex - The index where the element is to be moved
+ * @return {array} array - The array with moved element.
+ */
+var move = exports.move = function move(array, fromIndex, toIndex) {
+  array.splice(toIndex, 0, array.splice(fromIndex, 1)[0]);
+};
+
 var utils = {
   compactObject: compactObject,
   recursiveOmit: recursiveOmit,
   deepExtend: deepExtend,
   diffObject: diffObject,
-  convertCamelCaseToReadable: convertCamelCaseToReadable
+  convertCamelCaseToReadable: convertCamelCaseToReadable,
+  move: move
 };
 
 exports.default = utils;

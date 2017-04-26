@@ -108,12 +108,25 @@ export const convertCamelCaseToReadable = (s1) => (
   s1.replace(/(^|[^a-z])([a-z]+)([A-Z])/, _replacer1)
 );
 
+/**
+ * @function move
+ * @desc Moves the element from fromIndex to toIndex in the array
+ * @param {array} array - The array in which element is to be moved
+ * @param {number} fromIndex - The element index which it has to be moved
+ * @param {number} toIndex - The index where the element is to be moved
+ * @return {array} array - The array with moved element.
+ */
+export const move = (array, fromIndex, toIndex) => {
+  array.splice(toIndex, 0, array.splice(fromIndex, 1)[0]);
+}
+
 const utils = {
   compactObject,
   recursiveOmit,
   deepExtend,
   diffObject,
   convertCamelCaseToReadable,
+  move,
 };
 
 export default utils;
